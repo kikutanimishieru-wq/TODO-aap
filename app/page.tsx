@@ -8,6 +8,12 @@ import { useState } from "react";
 export default () => {
   const [tasks, setTasks] = useState<Task[]>([]);
 
+
+  const deleteTask = (id: string) => {
+    setTasks((current)=> current.filter((task)=> task.id !== id))
+  }
+  
+
   const createTask = (title: string) => {
     const newTask: Task = {
       id: Date.now().toString(),
@@ -25,7 +31,8 @@ export default () => {
         <Middle onCreateTask={createTask} />
         <Middle2 />
         <Footer />
-        <Newtask />
+        <Newtask tasks={tasks}  onDelete={deleteTask} />
+      
       </div>
     </main>
   );

@@ -5,21 +5,20 @@ export const Middle2 = () => {
       <div className='flex items-center justify-between gap-2 mx-6 '>
           <div className='flex gap-5 sm:gap-7 '>
               <button
-                  id='All'
                   className='cursor-pointer text-xs font-semibold
                   text-[#7b8680] hover:text-[#236b53]'
                 >All    
               </button>
 
               <button
-                  id='All'
+                  
                   className='cursor-pointer text-xs font-semibold
                   text-[#7b8680] hover:text-[#236b53]'
                 >Active  
               </button>
 
               <button
-                  id='All'
+                
                   className='cursor-pointer text-xs font-semibold
                   text-[#7b8680] hover:text-[#236b53]'
                 >Completed    
