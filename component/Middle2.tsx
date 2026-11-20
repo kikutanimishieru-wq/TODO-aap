@@ -1,13 +1,14 @@
-import type { FilterType } from "@/types";
+import type { FilterType, Task } from "@/types";
 
 const filters: FilterType[] = ["All", "Active", "Completed"];
 
 type TaskFiltersProps = {
+  tasks: Task[]
   filter: FilterType
   onFilter: (filter: FilterType) => void
 }
 
-export const Middle2 = ({ filter, onFilter }: TaskFiltersProps) => {
+export const Middle2 = ({ filter, onFilter, tasks }: TaskFiltersProps) => {
   const handleClick = (filterValue: FilterType) => ()=>{
     onFilter(filterValue)
   }
@@ -19,7 +20,11 @@ export const Middle2 = ({ filter, onFilter }: TaskFiltersProps) => {
             key={item}
             type="button"
             onClick={handleClick(item)}
-            className="cursor-pointer text-xs font-semibold text-[#7b8680] hover:text-[#236b53]"
+            className={`cursor-pointer border-b-2 text-xs font-semibold hover:text-[#236b53] ${
+      filter === item
+        ? "border-[#236b53] text-[#236b53]"
+        : "border-transparent text-[#7b8680]"
+    }`}
           >
             {item}
           </button>
@@ -27,7 +32,7 @@ export const Middle2 = ({ filter, onFilter }: TaskFiltersProps) => {
       </div>
 
       <p className="mx-7 mb-7 mt-3 flex justify-end rounded-md bg-[#f0f4f1] text-[11px] font-medium text-[#65766c]">
-        0
+        {tasks.length}
       </p>
     </div>
   );
